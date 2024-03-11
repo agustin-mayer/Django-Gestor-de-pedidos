@@ -1,0 +1,10 @@
+{% extends "pedidos/disenio.html" %}
+
+{% block body %}
+    <h1>Todos los pedidos:</h1>
+    <ul>
+        {% for pedido in pedidos %}
+            <li>[#{{ pedido.id }}] {{ pedido.cliente.direccion }} ({{ pedido.cliente.nombre }}) Contacto: {{ pedido.cliente.telefono }} - Total: ${{ pedido.precio_total }}. Estado: {{ pedido.get_estado_display }}  <a href="{% url 'pedido' pedido.id %}">Más detalles </a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

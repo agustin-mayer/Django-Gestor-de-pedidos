@@ -15,7 +15,7 @@ def pedido(request, id_pedido):
         pedido = Pedido.objects.get(id=id_pedido)
         return render(request, "pedidos/pedido.html", {
             "pedido": pedido,
-            "pasajeros": pedido.clientes.all()
+            "productos": pedido.productos.all()
         })
     except Pedido.DoesNotExist:
         return HttpResponseRedirect(reverse("index"))

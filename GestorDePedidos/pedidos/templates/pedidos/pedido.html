@@ -1,0 +1,22 @@
+{% extends "pedidos/disenio.html" %}
+
+{% block body %}
+<h1>Pedido de {{ pedido.cliente.nombre }} (#{{ pedido.id }})</h1>
+<ul>
+    <li>Direccion: {{ pedido.cliente.direccion }}</li>
+    <li>Telefono: {{ pedido.cliente.telefono }}</li>
+    <li>Precio: ${{ pedido.precio_total }}</li>
+</ul>
+
+
+<h3>Productos:</h2>
+<ul>
+    {% for producto in productos %}
+        <li>{{ producto }} (${{ producto.precio }})</li>
+    {% empty %}
+        <li>Sin productos.</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'index' %}">Ver todos los pedidos</a>
+{% endblock %}
