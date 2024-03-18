@@ -21,7 +21,7 @@ class Pedido(models.Model):
         ('no_retirado', 'No retirado'),
         ('en_transito', 'En tránsito'),
         ('entregado', 'Entregado'),
-        ('cancelado', 'cancelado'),
+        ('cancelado', 'Cancelado'),
     )
     cliente = models.ForeignKey(Cliente, on_delete = models.CASCADE)
     estado = models.CharField(max_length = 24, choices = OPCIONES_DE_ESTADO, default='no_retirado')
@@ -35,4 +35,4 @@ class Pedido(models.Model):
         return self.calcular_precio_total()
     
     def __str__(self):
-        return f"Pedido de {self.cliente.nombre} - {self.cliente.direccion} ({self.cliente.telefono}) - Precio Total: {self.precio_total} - Estado: {self.estado}"
+        return f"[#{self.id}] Pedido de {self.cliente.nombre}: {self.get_estado_display()}. Total: ${self.precio_total} - {self.cliente.direccion} ({self.cliente.telefono})"
