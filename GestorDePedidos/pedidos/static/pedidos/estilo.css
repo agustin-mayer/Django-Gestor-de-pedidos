@@ -1,5 +1,199 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+.contenedor-formulario {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
 h1 {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 90px;
     text-align: center;
-} /* en fontfamily me elige la primera, si no la tengo la segunda y asi sucesivamente
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.contenedor-input {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+select,input[type="password"], input[type="text"] {
+    width: calc(100% - 10px);
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.nuevo-cliente {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.nuevo-cliente span {
+    margin-right: 10px;
+}
+
+.nuevo-cliente a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.nuevo-cliente a:hover {
+    text-decoration: underline;
+}
+
+.contenedor-pedidos {
+    max-width: 850px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contenedor-pedidos h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.titulo-y-botones {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.btn-nuevo-pedido {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-nuevo-pedido:hover {
+    background-color: #218838;
+}
+
+.contenedor-pedidos ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.contenedor-pedidos li {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+.contenedor-pedidos li a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.contenedor-pedidos li a:hover {
+    text-decoration: underline;
+}
+
+.contenedor-pedidos .no-retirado {
+    background-color: #ffc10741; 
+}
+
+.contenedor-pedidos .en-transito {
+    background-color: #17a2b8;
+}
+
+.contenedor-pedidos .entregado {
+    background-color: #28a745; 
+}
+
+.contenedor-pedidos .cancelado {
+    background-color: #dc3545; 
+}
+
+
+.btn-clasico {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-clasico:hover {
+    background-color: #218838;
+}
+
+.btn-eliminar {
+    display: block;
+    width: 100%;
+    padding: 10px; 
+    color: #dc3545;
+    border-color: #dc3545;
+    background-color: transparent;
+    border: 2px solid;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+}
+
+.btn-modificar:hover,
+.btn-eliminar:hover {
+    background-color: #f0f0f0;
+}
+.btn-modificar {
+    margin-right: 10px;
+    display: block;
+    width: 100%;
+    padding: 10px; 
+    color: #28a745;
+    border-color: #28a745;
+    background-color: transparent;
+    border: 2px solid;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-logout {
+    display: inline-block; 
+    margin-left: 10px;
+}
+
+.btn-cerrar {
+    display: inline-block; 
+    color: #28a745;
+    border-color: #28a745;
+    background-color: transparent;
+}
+
+.p-bienvenida {
+    display: inline-block; 
+}
+
+.div-bienvenida {
+    text-align: right;
+    margin-right: 20px;
+}
