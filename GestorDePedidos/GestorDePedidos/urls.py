@@ -23,5 +23,6 @@ admin.site.index_title = "Sitio de gestion de pedidos"
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('pedidos/', include("pedidos.urls")),
+    path('', include("pedidos.urls")),
+    path('accounts/', include('allauth.urls')),
 ]
