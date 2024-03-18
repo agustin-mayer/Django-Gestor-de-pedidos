@@ -1,0 +1,26 @@
+{% extends "pedidos/design.html" %}
+
+{% block body %}
+<div class="contenedor-formulario">
+    <h1>Registrar nuevo cliente</h1>
+    <form method="post" class="formulario-crear">
+        {% csrf_token %}
+        <div class="contenedor-input">
+            <label for="id_nombre">Nombre:</label>
+            <input type="text" name="nombre" id="id_nombre" required>
+        </div>
+        <div class="contenedor-input">
+            <label for="id_telefono">Teléfono:</label>
+            <input type="text" name="telefono" id="id_telefono" required>
+        </div>
+        <div class="contenedor-input">
+            <label for="id_direccion">Dirección:</label>
+            <input type="text" name="direccion" id="id_direccion" required>
+        </div>
+        <div class="botones">
+            <button type="submit" class="btn-clasico">Crear cliente</button>
+            <a href="{% url 'crear_pedido' %}">Cancelar</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

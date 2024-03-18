@@ -1,0 +1,40 @@
+{% extends "pedidos/design.html" %}
+
+{% block body %}
+    <div class="contenedor-formulario">
+        <h1>Modificar pedido</h1>
+        <form method="post" class="formulario-crear">
+            {% csrf_token %}
+            <div class="contenedor-input">
+                <label for="id_cliente">Cliente:</label>
+                <select name="cliente" id="id_cliente">
+                    {% for cliente in clientes %}
+                    <option value="{{ cliente.id }}" {% if pedido.cliente.id == cliente.id %} selected {% endif %}>{{ cliente.nombre }} ({{ cliente.direccion }})</option>
+                    {% endfor %}
+                </select>
+                <div class="nuevo-cliente">
+                    <span>¿Nuevo cliente?</span>
+                    <a href="{% url 'crear_cliente' %}">Crear nuevo</a>
+                </div>
+            </div>
+            <div class="contenedor-input">
+                <label for="id_productos">Productos:</label>
+                <select name="productos" id="id_productos" multiple>
+                    {% for producto in productos %}
+                    <option value="{{ producto.id }}" {% if producto in pedido.productos.all %} selected {% endif %}>{{ producto.nombre }} - ${{ producto.precio }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="contenedor-input">
+                <label for="id_estado">Estado:</label>
+                <select name="estado" id="id_estado">
+                    {% for key, value in opciones_de_estado %}
+                    <option value="{{ key }}" {% if pedido.estado == key %} selected {% endif %}>{{ value }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit" class="btn-clasico">Guardar cambios</button>
+            <a href="{% url 'index' %}" class="btn-volver">Cancelar</a>
+        </form>
+    </div>
+{% endblock %}

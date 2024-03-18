@@ -1,10 +1,28 @@
-{% extends "pedidos/disenio.html" %}
+{% extends "pedidos/design.html" %}
 
 {% block body %}
-    <h1>Todos los pedidos:</h1>
+{% if user.is_authenticated %}
+<div class="div-bienvenida">
+    <p>Bienvenido, {{ user.username }}!</p>
+    <form action="{% url 'account_logout' %}" method="post" class="form-logout">
+        {% csrf_token %}
+        <button type="submit" class="btn-cerrar">Cerrar sesión</button>
+    </form>
+</div>
+{% endif %}
+<div class="contenedor-pedidos">
+    <div class="titulo-y-botones">
+        <h1>Gestor de pedidos</h1>
+        <a href="{% url 'crear_pedido'%}" class="btn-nuevo-pedido">+ Nuevo pedido</a>
+    </div>
     <ul>
         {% for pedido in pedidos %}
-            <li>[#{{ pedido.id }}] {{ pedido.cliente.direccion }} ({{ pedido.cliente.nombre }}) Contacto: {{ pedido.cliente.telefono }} - Total: ${{ pedido.precio_total }}. Estado: {{ pedido.get_estado_display }}  <a href="{% url 'pedido' pedido.id %}">Más detalles </a></li>
+        <li
+            class="{% if pedido.estado == 'no_retirado' %}no-retirado{% elif pedido.estado == 'en_transito' %}en-transito{% elif pedido.estado == 'entregado' %}entregado{% elif pedido.estado == 'cancelado' %}cancelado{% endif %}">
+            {{pedido}}
+            <a href="{% url 'pedido' pedido.id %}">Más detalles </a>
+        </li>
         {% endfor %}
     </ul>
+</div>
 {% endblock %}

@@ -1,22 +1,29 @@
-{% extends "pedidos/disenio.html" %}
+{% extends "pedidos/design.html" %}
 
 {% block body %}
-<h1>Pedido de {{ pedido.cliente.nombre }} (#{{ pedido.id }})</h1>
-<ul>
-    <li>Direccion: {{ pedido.cliente.direccion }}</li>
-    <li>Telefono: {{ pedido.cliente.telefono }}</li>
-    <li>Precio: ${{ pedido.precio_total }}</li>
-</ul>
+    <div class="contenedor-pedidos">
+        <h2>Pedido de {{ pedido.cliente.nombre }} (#{{ pedido.id }}) - {{pedido.get_estado_display}}</h2>
+        <ul>
+            <li>Dirección: {{ pedido.cliente.direccion }}</li>
+            <li>Teléfono: {{ pedido.cliente.telefono }}</li>
+            <li>Precio: ${{ pedido.precio_total }}</li>
+        </ul>
 
-
-<h3>Productos:</h2>
-<ul>
-    {% for producto in productos %}
-        <li>{{ producto }} (${{ producto.precio }})</li>
-    {% empty %}
-        <li>Sin productos.</li>
-    {% endfor %}
-</ul>
-
-<a href="{% url 'index' %}">Ver todos los pedidos</a>
+        <h3>Productos:</h3>
+        <ul>
+            {% for producto in productos %}
+                <li>{{ producto }} (${{ producto.precio }})</li>
+            {% empty %}
+                <li>Sin productos.</li>
+            {% endfor %}
+        </ul>
+        <div>
+            <button onclick=window.location.href="{% url 'modificar_pedido' pedido.id %}" class="btn-modificar">Modificar pedido</button>
+            <form method="post" action="{% url 'eliminar_pedido' pedido.id %}">
+                {% csrf_token %}
+                <button type="submit" class="btn-eliminar">Eliminar pedido</button>
+            </form>
+            <a href="{% url 'index' %}" class="btn-volver">Ver todos los pedidos</a>
+        </div>
+    </div>
 {% endblock %}
