@@ -2,6 +2,14 @@
 
 Este proyecto es un gestor de pedidos desarrollado en Django que te permite gestionar pedidos, clientes y productos.
 
+## Funcionalidades
+
+- **Ver pedidos:** Accede a la página principal para ver todos los pedidos registrados.
+- **Ver detalles de un pedido:** Haz clic en un pedido para ver más detalles, incluidos los productos asociados.
+- **Crear nuevo pedido:** Utiliza el formulario de creación de pedidos para añadir un nuevo pedido con su respectivo cliente y productos.
+- **Modificar pedido:** Accede a la página de modificación de un pedido para cambiar su cliente, estado o productos asociados.
+- **Eliminar pedido:** Elimina un pedido de la base de datos.
+
 ## Instalación
 
 Para instalar y ejecutar este proyecto en tu máquina local, sigue estos pasos:
@@ -9,7 +17,7 @@ Para instalar y ejecutar este proyecto en tu máquina local, sigue estos pasos:
 1. **Clona el repositorio:**
 
     ```
-    git clone [<URL_del_repositorio>](https://github.com/agustin-mayer/Django-Gestor-de-pedidos.git)
+    git clone https://github.com/agustin-mayer/Django-Gestor-de-pedidos.git
     ```
 
 2. **Instala los requisitos:**
@@ -43,11 +51,3 @@ Para instalar y ejecutar este proyecto en tu máquina local, sigue estos pasos:
 6. **Accede al proyecto:**
 
     Abre tu navegador web y visita [http://localhost:8000/](http://localhost:8000/) para ver el proyecto en funcionamiento.
-
-## Funcionalidades
-
-- **Ver pedidos:** Accede a la página principal para ver todos los pedidos registrados.
-- **Ver detalles de un pedido:** Haz clic en un pedido para ver más detalles, incluidos los productos asociados.
-- **Crear nuevo pedido:** Utiliza el formulario de creación de pedidos para añadir un nuevo pedido con su respectivo cliente y productos.
-- **Modificar pedido:** Accede a la página de modificación de un pedido para cambiar su cliente, estado o productos asociados.
-- **Eliminar pedido:** Elimina un pedido de la base de datos.
