@@ -1,0 +1,24 @@
+{% extends "account/base.html" %}
+{% load i18n %}
+
+{% block head_title %}{% trans "Log In" %}{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">{{ _("Log In") }}</div>
+                <div class="card-body">
+                    <form method="post" action="{% url 'account_login' %}">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-primary">{{ _("Log In") }}</button>
+                    </form>
+                    <p>{% trans "Don't have an account?" %} <a href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
