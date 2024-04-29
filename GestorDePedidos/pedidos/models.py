@@ -4,6 +4,7 @@ from django.db import models
 class Cliente(models.Model):
     nombre = models.CharField(max_length=100)
     telefono = models.CharField(max_length=20)
+    correo = models.CharField(max_length=100)
     direccion = models.CharField(max_length=255)
     
     def __str__(self):
@@ -12,19 +13,21 @@ class Cliente(models.Model):
 class Producto(models.Model):
     nombre = models.CharField(max_length=100)
     precio = models.DecimalField(max_digits=10, decimal_places=2)
+    descripcion = models.CharField(max_length=400)
 
     def __str__(self):
         return f"{self.nombre}"
 
 class Pedido(models.Model):
     OPCIONES_DE_ESTADO = (
-        ('no_retirado', 'No retirado'),
-        ('en_transito', 'En tránsito'),
+        ('en_curso', 'En curso'),
+        ('pendiente', 'Pendiente'),
+        ('aceptado', 'Aceptado'),
         ('entregado', 'Entregado'),
         ('cancelado', 'Cancelado'),
     )
     cliente = models.ForeignKey(Cliente, on_delete = models.CASCADE)
-    estado = models.CharField(max_length = 24, choices = OPCIONES_DE_ESTADO, default='no_retirado')
+    estado = models.CharField(max_length = 24, choices = OPCIONES_DE_ESTADO, default='en_curso')
     productos = models.ManyToManyField(Producto)
     
     def calcular_precio_total(self):
